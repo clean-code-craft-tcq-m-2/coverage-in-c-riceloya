@@ -32,6 +32,8 @@ BreachType classifyTemperatureBreach(
     upperLimit = 40;
     break;
   }
+  else
+    break;
   return inferBreach(temperatureInC, lowerLimit, upperLimit);
 }
 
