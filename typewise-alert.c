@@ -20,17 +20,16 @@ BreachType classifyTemperatureBreach(
     lowerLimit = 0;
     upperLimit = 35;
   }
+  else if(coolingType == NORMAL)
+  {
+    lowerLimit = 36;
+    upperLimit = 40;
+  }
   else if (coolingType == HI_ACTIVE_COOLING)
   {
     lowerLimit = 41;
     upperLimit = 45;
   }
-  else if(coolingType == NORMAL)
-    lowerLimit = 36;
-    upperLimit = 40;
-  }
-  else
-    break;
   return inferBreach(temperatureInC, lowerLimit, upperLimit);
 }
 
@@ -40,7 +39,6 @@ void checkAndAlert(
   BreachType breachType = classifyTemperatureBreach(
     batteryChar.coolingType, temperatureInC
   );
-
   if (alertTarget == TO_CONTROLLER)
   {
     sendToController(breachType);
@@ -49,8 +47,6 @@ void checkAndAlert(
   {
     sendToEmail(breachType);
   }
-  else
-    break;
 }
 
 void sendToController(BreachType breachType) {
@@ -71,6 +67,4 @@ void sendToEmail(BreachType breachType) {
     printf("To: %s\n", recepient);
     printf("Hi, the temperature is too high\n");
   }
-  else
-    break;
 }
