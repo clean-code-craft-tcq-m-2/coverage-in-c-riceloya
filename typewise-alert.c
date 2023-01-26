@@ -25,7 +25,7 @@ BreachType classifyTemperatureBreach(
     lowerLimit = 36;
     upperLimit = 40;
   }
-  else if (coolingType == HI_ACTIVE_COOLING)
+  else
   {
     lowerLimit = 41;
     upperLimit = 45;
@@ -43,7 +43,7 @@ void checkAndAlert(
   {
     sendToController(breachType);
   }
-  else if (alertTarget == TO_EMAIL)
+  else
   {
     sendToEmail(breachType);
   }
@@ -62,7 +62,7 @@ void sendToEmail(BreachType breachType) {
     printf("To: %s\n", recepient);
     printf("Hi, the temperature is too low\n");
   }
-  else if (breachType == TOO_HIGH)
+  else
   {
     printf("To: %s\n", recepient);
     printf("Hi, the temperature is too high\n");
