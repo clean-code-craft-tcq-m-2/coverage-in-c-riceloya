@@ -19,18 +19,15 @@ BreachType classifyTemperatureBreach(
   {
     lowerLimit = 0;
     upperLimit = 35;
-    break;
   }
   else if (coolingType == HI_ACTIVE_COOLING)
   {
     lowerLimit = 41;
     upperLimit = 45;
-    break;
   }
   else if(coolingType == NORMAL)
     lowerLimit = 36;
     upperLimit = 40;
-    break;
   }
   else
     break;
