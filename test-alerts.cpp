@@ -3,6 +3,9 @@
 #include "test/catch.hpp"
 #include "typewise-alert.h"
 
-TEST_CASE("infers the breach according to all 3 level limits") {
-  REQUIRE(inferBreach(12, 10, 30) != TOO_LOW);
+TEST_CASE("infers the breach according to all level limits") {
+  REQUIRE(inferBreach(12, 20, 30) == TOO_LOW);
+  REQUIRE(inferBreach(48, 41, 45) == TOO_HIGH);
+  REQUIRE(inferBreach(37, 36, 40) == NORMAL);
+  REQUIRE(classifyTemperatureBreach(PASSIVE_COOLING,12) == NORMAL)
 }
