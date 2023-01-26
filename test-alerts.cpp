@@ -7,5 +7,5 @@ TEST_CASE("infers the breach according to all level limits") {
   REQUIRE(inferBreach(12, 20, 30) == TOO_LOW);
   REQUIRE(inferBreach(48, 41, 45) == TOO_HIGH);
   REQUIRE(inferBreach(37, 36, 40) == NORMAL);
-  REQUIRE(classifyTemperatureBreach(PASSIVE_COOLING,12) == NORMAL)
+  REQUIRE(classifyTemperatureBreach(PASSIVE_COOLING,12) == NORMAL);
 }
